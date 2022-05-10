@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.5.2</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+
+    <groupId>ir.caspco.versatile</groupId>
+    <artifactId>versatile-mobile</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <name>versatile</name>
+    <description>Parent.</description>
+
+    <packaging>pom</packaging>
+
+    <developers>
+        <developer>
+            <id>d.akbari</id>
+            <name>Davood Akbari</name>
+            <email>daak1365@gmail.com</email>
+            <organization>CASPCO Corp.</organization>
+            <roles>
+                <role>lead</role>
+                <role>developer</role>
+            </roles>
+        </developer>
+    </developers>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>8</java.version>
+        <spring-cloud.version>2020.0.3</spring-cloud.version>
+    </properties>
+
+    <modules>
+        <module>main</module>
+    </modules>
+
+
+    <profiles>
+
+        <profile>
+            <id>development</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <spring.profiles.active>development</spring.profiles.active>
+            </properties>
+        </profile>
+        <profile>
+            <id>production</id>
+            <properties>
+                <spring.profiles.active>production</spring.profiles.active>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>Gateway-Municipality</id>
+            <modules>
+                <module>gateway</module>
+                <module>gateway/gateway-city-Services</module>
+            </modules>
+        </profile>
+
+
+        <profile>
+            <id>Gateway-Wallet</id>
+            <modules>
+                <module>gateway</module>
+                <module>gateway/gateway-wallet</module>
+            </modules>
+        </profile>
+
+
+        <profile>
+            <id>Mobile</id>
+            <modules>
+                <module>mobile</module>
+            </modules>
+        </profile>
+
+    </profiles>
+
+    <dependencyManagement>
+
+        <dependencies>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>2.12.3</version>
+                <scope>compile</scope>
+            </dependency>
+
+            <!--ir.caspco.versatile-->
+            <dependency>
+                <groupId>ir.caspco.versatile</groupId>
+                <artifactId>common-configuration</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ir.caspco.versatile</groupId>
+                <artifactId>common-security-basic</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ir.caspco.versatile</groupId>
+                <artifactId>common-context</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ir.caspco.versatile</groupId>
+                <artifactId>common-util</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ir.caspco.versatile</groupId>
+                <artifactId>jms-client</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ir.caspco.versatile</groupId>
+                <artifactId>common-handler-exceptions</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ir.caspco.versatile</groupId>
+                <artifactId>rest-client</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ir.caspco.versatile</groupId>
+                <artifactId>gateway</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ir.caspco.versatile</groupId>
+                <artifactId>common-jms-client</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ir.caspco.versatile</groupId>
+                <artifactId>common-rest-client</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ir.caspco.versatile</groupId>
+                <artifactId>validation</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ir.caspco.versatile</groupId>
+                <artifactId>common-validation</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ir.caspco.versatile</groupId>
+                <artifactId>gateway-context</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ir.caspco.versatile</groupId>
+                <artifactId>gateway-management</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ir.caspco.versatile</groupId>
+                <artifactId>gateway-smart-filter</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ir.caspco.versatile</groupId>
+                <artifactId>gateway-wallet-context</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ir.caspco.versatile</groupId>
+                <artifactId>gateway-wallet-hampa</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+
+
+            <!-- gateway-municipality -->
+            <dependency>
+                <groupId>ir.caspco.versatile</groupId>
+                <artifactId>gateway-municipality-common</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ir.caspco.versatile</groupId>
+                <artifactId>gateway-municipality-context</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ir.caspco.versatile</groupId>
+                <artifactId>gateway-municipality-core</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ir.caspco.versatile</groupId>
+                <artifactId>mobile-log</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ir.caspco.versatile</groupId>
+                <artifactId>mobile-context</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ir.caspco.versatile</groupId>
+                <artifactId>mobile-controller</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ir.caspco.versatile</groupId>
+                <artifactId>mobile-services</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+
+            <!-- junit 5 -->
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-engine</artifactId>
+                <version>5.8.0-M1</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>2.4.5</version>
+                <scope>test</scope>
+            </dependency>
+
+        </dependencies>
+
+    </dependencyManagement>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>versatile-mobile</artifactId>
+        <groupId>ir.caspco.versatile</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>mobile</artifactId>
+
+    <packaging>pom</packaging>
+
+    <developers>
+        <developer>
+            <id>d.akbari</id>
+            <name>Davood Akbari</name>
+            <email>daak1365@gmail.com</email>
+            <organization>CASPCO Corp.</organization>
+            <roles>
+                <role>lead</role>
+                <role>developer</role>
+            </roles>
+        </developer>
+    </developers>
+
+    <modules>
+        <module>mobile-log</module>
+        <module>mobile-context</module>
+        <module>mobile-services</module>
+        <module>mobile-controller</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+
+            <dependency>
+                <groupId>ir.caspco.versatile</groupId>
+                <artifactId>mobile-context</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ir.caspco.versatile</groupId>
+                <artifactId>mobile-controller</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ir.caspco.versatile</groupId>
+                <artifactId>mobile-services</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+
+</project>

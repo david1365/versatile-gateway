@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>versatile-mobile</artifactId>
+        <groupId>ir.caspco.versatile</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>main</artifactId>
+
+    <developers>
+        <developer>
+            <id>d.akbari</id>
+            <name>Davood Akbari</name>
+            <email>daak1365@gmail.com</email>
+            <organization>CASPCO Corp.</organization>
+            <roles>
+                <role>lead</role>
+                <role>developer</role>
+            </roles>
+        </developer>
+    </developers>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-gateway-webflux</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.oracle.database.jdbc</groupId>
+            <artifactId>ojdbc8</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- ir.caspco.versatile -->
+        <dependency>
+            <groupId>ir.caspco.versatile</groupId>
+            <artifactId>common-security-basic</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>ir.caspco.versatile</groupId>
+            <artifactId>common-configuration</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>ir.caspco.versatile</groupId>
+            <artifactId>gateway-management</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>ir.caspco.versatile</groupId>
+            <artifactId>jms-client</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>ir.caspco.versatile</groupId>
+            <artifactId>common-rest-client</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>ir.caspco.versatile</groupId>
+            <artifactId>validation</artifactId>
+        </dependency>
+
+        <!-- junit 5 -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit-jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <profiles>
+        <profile>
+            <id>Gateway-Wallet</id>
+            <dependencies>
+
+                <dependency>
+                    <groupId>ir.caspco.versatile</groupId>
+                    <artifactId>gateway-wallet-hampa</artifactId>
+                </dependency>
+
+            </dependencies>
+        </profile>
+
+        <profile>
+            <id>Gateway-Municipality</id>
+            <dependencies>
+                <dependency>
+                    <groupId>ir.caspco.versatile</groupId>
+                    <artifactId>gateway-municipality-common</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>ir.caspco.versatile</groupId>
+                    <artifactId>gateway-municipality-context</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>ir.caspco.versatile</groupId>
+                    <artifactId>gateway-municipality-core</artifactId>
+                </dependency>
+
+            </dependencies>
+        </profile>
+
+        <profile>
+
+            <id>Mobile</id>
+
+            <dependencies>
+
+                <dependency>
+                    <groupId>ir.caspco.versatile</groupId>
+                    <artifactId>mobile-log</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>ir.caspco.versatile</groupId>
+                    <artifactId>mobile-context</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>ir.caspco.versatile</groupId>
+                    <artifactId>mobile-controller</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>ir.caspco.versatile</groupId>
+                    <artifactId>mobile-services</artifactId>
+                </dependency>
+
+            </dependencies>
+
+        </profile>
+    </profiles>
+
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <finalName>versatile-mobile-${version}</finalName>
+                    <outputDirectory>${basedir}/../output</outputDirectory>
+                    <!--                    <mainClass>ir.caspco.versatile.gateway.main.VersatileGatewayApplication</mainClass>-->
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
